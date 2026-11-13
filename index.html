@@ -1,0 +1,623 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>Apple (Indonesia)</title>
+<style>
+:root{box-sizing:border-box;padding-top:env(safe-area-inset-top,0px);padding-bottom:env(safe-area-inset-bottom,0px);
+--bg:#000;--bg2:#161617;--card:#1d1d1f;--blue:#0071e3;--blue2:#0077ed;--text:#f5f5f7;--muted:#86868b;--line:#424245;--nav:rgba(0,0,0,.8);--t:all .3s cubic-bezier(.25,.1,.25,1);color-scheme:dark}
+html{scroll-behavior:smooth;scroll-padding-top:70px}
+@media(prefers-color-scheme:light){:root:not([data-theme="dark"]){--bg:#fff;--bg2:#f5f5f7;--card:#fff;--text:#1d1d1f;--muted:#6e6e73;--line:#d2d2d7;--nav:rgba(255,255,255,.8);color-scheme:light}}
+:root[data-theme="light"]{--bg:#fff;--bg2:#f5f5f7;--card:#fff;--text:#1d1d1f;--muted:#6e6e73;--line:#d2d2d7;--nav:rgba(255,255,255,.8);color-scheme:light}
+*{margin:0;padding:0;box-sizing:border-box;font-family:-apple-system,BlinkMacSystemFont,"SF Pro Display","Segoe UI",Roboto,Helvetica,Arial,sans-serif}
+body{background:var(--bg);color:var(--text);line-height:1.5;overflow-x:hidden}
+.container{max-width:1100px;margin:0 auto;padding:0 20px}
+button{color:inherit}
+.navbar{position:fixed;top:0;left:0;width:100%;background:var(--nav);backdrop-filter:blur(20px);-webkit-backdrop-filter:blur(20px);z-index:1000;border-bottom:1px solid var(--line);padding-top:env(safe-area-inset-top,0px)}
+.nav-container{max-width:1000px;margin:0 auto;display:flex;justify-content:space-between;align-items:center;padding:12px 20px;gap:14px}
+.nav-logo{color:var(--text);font-weight:600;text-decoration:none;display:flex;align-items:center;gap:7px}
+.nav-menu{display:flex;list-style:none;gap:28px;overflow-x:auto}
+.nav-menu a{color:var(--muted);text-decoration:none;font-size:.85rem;transition:var(--t);white-space:nowrap}
+.nav-menu a:hover,.nav-menu a.on{color:var(--text)}
+.bag{background:none;border:0;cursor:pointer;font-size:1.1rem;position:relative;padding:2px 6px}
+.bag b{position:absolute;top:-6px;right:-4px;background:var(--blue);color:#fff;font-size:.65rem;min-width:16px;height:16px;border-radius:8px;display:none;align-items:center;justify-content:center}
+.hero{min-height:100vh;display:flex;align-items:center;justify-content:center;text-align:center;padding:90px 20px 40px;background:radial-gradient(ellipse at 50% 30%,rgba(0,113,227,.18),transparent 60%),var(--bg)}
+.tagline{color:#5ac8fa;font-size:.9rem;font-weight:600;letter-spacing:1px;text-transform:uppercase}
+.hero h1{font-size:clamp(2.6rem,8vw,5rem);font-weight:700;margin:10px 0;background:linear-gradient(180deg,var(--text),var(--muted));-webkit-background-clip:text;background-clip:text;-webkit-text-fill-color:transparent}
+.subtitle{font-size:clamp(1.1rem,3vw,1.5rem);color:var(--muted);margin-bottom:30px;font-weight:300}
+.cta-group{display:flex;gap:15px;justify-content:center;flex-wrap:wrap}
+.btn{padding:12px 24px;border-radius:980px;font-size:.95rem;text-decoration:none;transition:var(--t);border:0;cursor:pointer;display:inline-block}
+.btn-primary{background:var(--blue);color:#fff}.btn-primary:hover{background:var(--blue2)}
+.btn-secondary{background:transparent;color:var(--blue);border:1px solid var(--blue)}.btn-secondary:hover{background:var(--blue);color:#fff}
+.btn-block{width:100%}
+.section{padding:100px 0}
+.section-title{font-size:clamp(1.8rem,5vw,2.5rem);font-weight:600;margin-bottom:12px}
+.section-subtitle{color:var(--muted);font-size:1.1rem;margin-bottom:40px}
+.tc{text-align:center}
+.toolbar{display:flex;flex-wrap:wrap;gap:12px;justify-content:space-between;align-items:center;margin:30px 0}
+.tabs{display:flex;gap:8px;flex-wrap:wrap}
+.tab{background:var(--card);border:1px solid var(--line);color:var(--muted);padding:9px 18px;border-radius:20px;cursor:pointer;font-size:.9rem;transition:var(--t)}
+.tab.active,.tab:hover{background:var(--text);color:var(--bg)}
+.tools{display:flex;gap:8px}
+.tools input,.tools select{background:var(--card);border:1px solid var(--line);color:var(--text);padding:9px 14px;border-radius:20px;font-size:.9rem;outline:none}
+.tools input:focus,.tools select:focus{border-color:var(--blue)}
+.grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(260px,1fr));gap:22px}
+.pcard{background:var(--card);border-radius:18px;padding:22px;display:flex;flex-direction:column;gap:6px;transition:var(--t);border:1px solid var(--line);animation:in .4s both}
+.pcard:hover{transform:translateY(-5px)}
+@keyframes in{from{opacity:0;transform:translateY(12px)}}
+.pimg{height:190px;border-radius:12px;display:flex;align-items:center;justify-content:center;margin-bottom:8px;overflow:hidden;background:radial-gradient(circle at 50% 40%,#2c2c2e,#0a0a0a)}
+.pimg svg,.pimg .pemoji{transition:transform .4s}.pcard:hover .pimg svg,.pcard:hover .pimg .pemoji{transform:scale(1.08)}
+.badge{font-size:.72rem;color:var(--blue);font-weight:600;text-transform:uppercase}
+.pcard h3{font-size:1.2rem}.specs{color:var(--muted);font-size:.85rem;flex:1}
+.cfoot{display:flex;justify-content:space-between;align-items:center;margin-top:12px}
+.price{font-weight:600;font-size:.95rem}
+.btn-icon{width:36px;height:36px;border-radius:50%;background:var(--blue);color:#fff;border:0;cursor:pointer;font-size:1.2rem;transition:var(--t)}
+.btn-icon:hover{transform:scale(1.12)}
+.empty{grid-column:1/-1;text-align:center;color:var(--muted);padding:40px}
+.vis{background:var(--bg2)}
+.vwrap{display:grid;grid-template-columns:1fr 1fr;gap:50px;align-items:center}
+.vdisp{position:relative;display:flex;justify-content:center;align-items:center;min-height:420px}
+.glow{position:absolute;width:300px;height:300px;border-radius:50%;filter:blur(80px);opacity:.45;transition:background .5s}
+#phone{position:relative;width:220px;z-index:1;filter:drop-shadow(0 20px 30px rgba(0,0,0,.35));overflow:visible}
+#phone .tint,#phone .lg{transition:fill .5s}
+#beamGlow{opacity:0;transition:opacity .35s}#flashLamp{transition:fill .35s,filter .35s}
+#phone.lit #beamGlow{opacity:1}#phone.lit #flashLamp{fill:#fffbe0;filter:drop-shadow(0 0 6px #fff3a0)}
+.torch{margin-top:26px;background:var(--card);border:1px solid var(--line);color:var(--text);padding:10px 20px;border-radius:980px;cursor:pointer;font-size:.95rem;transition:var(--t)}
+.torch:hover{border-color:var(--muted)}.torch.on{background:#ffd60a;border-color:#ffd60a;color:#1d1d1f}
+.vctrl h3{font-size:2rem;margin-bottom:10px}.vctrl p{color:var(--muted);margin-bottom:26px;min-height:48px}
+.dots{display:flex;gap:15px}
+.dot{width:38px;height:38px;border-radius:50%;border:2px solid var(--line);cursor:pointer;transition:var(--t)}
+.dot.active{border-color:var(--blue);transform:scale(1.15);box-shadow:0 0 0 3px var(--bg2),0 0 0 5px var(--blue)}
+.cgrid{display:grid;grid-template-columns:2fr 1fr;gap:40px;margin-top:40px}
+.og{margin-bottom:30px}.og>label{display:block;font-size:1.1rem;font-weight:600;margin-bottom:15px}
+.so{display:grid;grid-template-columns:repeat(2,1fr);gap:15px}
+.opt{background:var(--card);border:2px solid var(--line);border-radius:12px;padding:18px;cursor:pointer;transition:var(--t);text-align:left;color:var(--text)}
+.opt:hover{border-color:var(--muted)}.opt.active{border-color:var(--blue);background:rgba(0,113,227,.08)}
+.opt h4{font-size:1.15rem}.opt span{font-size:.8rem;color:var(--muted);display:block}
+.ao{display:flex;flex-direction:column;gap:12px}
+.ai{display:flex;align-items:center;background:var(--card);padding:15px 20px;border-radius:12px;cursor:pointer;border:1px solid var(--line);transition:var(--t)}
+.ai:hover{border-color:var(--muted)}
+.ai input{margin-right:15px;width:18px;height:18px;accent-color:var(--blue)}
+.ai div{display:flex;justify-content:space-between;width:100%;gap:10px;flex-wrap:wrap}.ai .cost{color:var(--muted)}
+.sum{background:var(--card);border-radius:18px;padding:28px;position:sticky;top:90px;border:1px solid var(--line)}
+.sum h3{margin-bottom:20px;font-size:1.3rem}
+.sr{display:flex;justify-content:space-between;gap:10px;margin-bottom:12px;font-size:.9rem;color:var(--muted)}
+.sr span:last-child{color:var(--text);font-weight:500;text-align:right}
+hr{border:0;border-top:1px solid var(--line);margin:18px 0}
+.tot{display:flex;justify-content:space-between;align-items:center;margin-bottom:8px}
+.tp{font-size:1.35rem;font-weight:600;color:var(--blue)}
+.cic{width:100%;background:var(--bg);border:1px solid var(--line);color:var(--text);padding:10px;border-radius:10px;margin:8px 0 6px}
+.mo{font-size:.85rem;color:var(--muted);margin-bottom:18px;min-height:20px}
+.footer{background:var(--bg2);padding:30px 0;text-align:center;border-top:1px solid var(--line);color:var(--muted);font-size:.8rem}
+.ov{position:fixed;inset:0;background:rgba(0,0,0,.5);opacity:0;pointer-events:none;transition:opacity .3s;z-index:1100}
+.ov.show{opacity:1;pointer-events:auto}
+.drawer{position:fixed;top:0;right:0;height:100%;width:min(380px,100%);background:var(--card);border-left:1px solid var(--line);z-index:1200;transform:translateX(100%);transition:transform .35s;display:flex;flex-direction:column;padding:calc(20px + env(safe-area-inset-top,0px)) 20px calc(20px + env(safe-area-inset-bottom,0px))}
+.drawer.show{transform:none}
+.dh{display:flex;justify-content:space-between;align-items:center;margin-bottom:16px}
+.dh button{background:none;border:0;font-size:1.4rem;cursor:pointer}
+#items{flex:1;overflow-y:auto}
+.it{display:flex;justify-content:space-between;gap:10px;padding:12px 0;border-bottom:1px solid var(--line);font-size:.9rem}
+.it small{color:var(--muted);display:block}.it button{background:none;border:0;color:var(--blue);cursor:pointer;font-size:.8rem}
+.toast{position:fixed;left:50%;bottom:calc(24px + env(safe-area-inset-bottom,0px));transform:translate(-50%,30px);background:var(--text);color:var(--bg);padding:10px 20px;border-radius:980px;font-size:.9rem;opacity:0;transition:.3s;z-index:1300;pointer-events:none}
+.toast.show{opacity:1;transform:translate(-50%,0)}
+.mback{position:fixed;inset:0;background:rgba(0,0,0,.6);backdrop-filter:blur(6px);-webkit-backdrop-filter:blur(6px);z-index:1400;display:flex;align-items:center;justify-content:center;padding:calc(20px + env(safe-area-inset-top,0px)) 20px calc(20px + env(safe-area-inset-bottom,0px));opacity:0;pointer-events:none;transition:opacity .3s}
+.mback.show{opacity:1;pointer-events:auto}
+.mcard{position:relative;background:var(--card);border:1px solid var(--line);border-radius:22px;padding:34px;max-width:640px;width:100%;max-height:100%;overflow-y:auto;transform:translateY(20px) scale(.97);transition:transform .35s}
+.mback.show .mcard{transform:none}
+.mcard h3{font-size:2rem;margin:4px 0 8px}.msub{color:var(--muted);margin-bottom:22px}
+.mx{position:absolute;top:14px;right:16px;background:none;border:0;font-size:1.6rem;cursor:pointer;color:var(--muted)}.mx:hover{color:var(--text)}
+.feat{display:grid;grid-template-columns:1fr 1fr;gap:14px;margin-bottom:26px}
+.feat div{background:var(--bg2);border-radius:14px;padding:14px 16px}
+.feat span{font-size:1.4rem;display:block}.feat b{display:block;font-size:.95rem;margin:2px 0}.feat small{color:var(--muted);font-size:.8rem;line-height:1.4;display:block}
+.mact{display:flex;gap:12px;flex-wrap:wrap}.mnote{color:var(--muted);font-size:.78rem;margin-top:14px}
+@media(max-width:560px){.feat{grid-template-columns:1fr}.mcard{padding:26px 20px}}
+@media(max-width:768px){.vwrap,.cgrid{grid-template-columns:1fr}.so{grid-template-columns:1fr 1fr}.nav-menu{gap:16px}.vdisp{min-height:360px}.sum{position:static}}
+</style>
+</head>
+<body>
+<nav class="navbar"><div class="nav-container">
+<a href="#hero" class="nav-logo"><svg width="17" height="21" viewBox="2.5 0 19 24" fill="currentColor" aria-hidden="true"><path d="M12.152 6.896c-.948 0-2.415-1.078-3.96-1.04-2.04.027-3.91 1.183-4.961 3.014-2.117 3.675-.546 9.103 1.519 12.09 1.013 1.454 2.208 3.09 3.792 3.039 1.52-.065 2.09-.987 3.935-.987 1.831 0 2.35.987 3.96.948 1.637-.026 2.676-1.48 3.676-2.948 1.156-1.688 1.636-3.325 1.662-3.415-.039-.013-3.182-1.221-3.22-4.857-.026-3.04 2.48-4.494 2.597-4.559-1.429-2.09-3.623-2.324-4.39-2.376-2-.156-3.675 1.09-4.61 1.09zM15.53 3.83c.843-1.012 1.4-2.427 1.245-3.83-1.207.052-2.662.805-3.532 1.818-.78.896-1.454 2.338-1.273 3.714 1.338.104 2.715-.688 3.559-1.701"/></svg>Apple</a>
+<ul class="nav-menu">
+<li><a href="#hero">Store</a></li><li><a href="#products">Produk</a></li><li><a href="#visualizer">Warna</a></li><li><a href="#calculator">Kustomisasi</a></li>
+</ul>
+<button class="bag" id="bagBtn" aria-label="Kantong belanja">🛍️<b id="bagCount">0</b></button>
+</div></nav>
+
+<section id="hero" class="hero"><div>
+<span class="tagline">Baru</span>
+<h1>iPhone 15 Pro</h1>
+<p class="subtitle">Titanium. Begitu kuat. Begitu ringan. Begitu Pro.</p>
+<div class="cta-group">
+<a href="#calculator" class="btn btn-primary">Beli Sekarang</a>
+<button class="btn btn-secondary" id="learnBtn">Pelajari Selengkapnya ›</button>
+</div></div></section>
+
+<section id="products" class="section"><div class="container">
+<h2 class="section-title">Jelajahi Jajaran Produk.</h2>
+<div class="toolbar">
+<div class="tabs" id="tabs">
+<button class="tab active" data-c="all">Semua</button><button class="tab" data-c="iphone">iPhone</button><button class="tab" data-c="mac">MacBook</button><button class="tab" data-c="watch">Watch</button><button class="tab" data-c="audio">AirPods</button>
+</div>
+<div class="tools">
+<input id="q" type="search" placeholder="Cari produk..." aria-label="Cari produk">
+<select id="sort" aria-label="Urutkan"><option value="def">Urutkan</option><option value="asc">Harga terendah</option><option value="desc">Harga tertinggi</option></select>
+</div></div>
+<div class="grid" id="grid"></div>
+</div></section>
+
+<section id="visualizer" class="section vis"><div class="container">
+<h2 class="section-title tc">Pilih Warna Favoritmu.</h2>
+<p class="section-subtitle tc">Tampilan Titanium kelas penerbangan yang luar biasa tangguh.</p>
+<div class="vwrap">
+<div class="vdisp">
+<div class="glow" id="glow"></div>
+<svg id="phone" viewBox="0 0 220 440" role="img" aria-label="Pratinjau iPhone">
+<g stroke="rgba(0,0,0,.3)" stroke-width="1"><rect class="tint" x="1" y="78" width="6" height="22" rx="3" fill="#9a958c"/><rect class="tint" x="1" y="118" width="6" height="38" rx="3" fill="#9a958c"/><rect class="tint" x="1" y="164" width="6" height="38" rx="3" fill="#9a958c"/><rect class="tint" x="213" y="140" width="6" height="64" rx="3" fill="#9a958c"/></g>
+<rect class="body tint" id="pBody" x="5" y="5" width="210" height="430" rx="42" fill="#9a958c"/>
+<defs><linearGradient id="sheen" x1="0" y1="0" x2="1" y2="1"><stop offset="0" stop-color="#fff" stop-opacity=".22"/><stop offset=".45" stop-color="#fff" stop-opacity="0"/><stop offset="1" stop-color="#000" stop-opacity=".25"/></linearGradient></defs>
+<rect x="5" y="5" width="210" height="430" rx="42" fill="url(#sheen)"/>
+<rect x="5" y="5" width="210" height="430" rx="42" fill="none" stroke="rgba(255,255,255,.25)" stroke-width="2"/>
+<rect x="11" y="11" width="198" height="418" rx="36" fill="none" stroke="rgba(0,0,0,.18)" stroke-width="1"/>
+<defs><linearGradient id="rim" x1="0" y1="0" x2="1" y2="1"><stop offset="0" stop-color="#fff" stop-opacity=".85"/><stop offset=".3" stop-color="#fff" stop-opacity=".05"/><stop offset=".7" stop-color="#000" stop-opacity=".1"/><stop offset="1" stop-color="#fff" stop-opacity=".55"/></linearGradient></defs>
+<rect x="6" y="6" width="208" height="428" rx="41" fill="none" stroke="url(#rim)" stroke-width="2.5"/>
+<rect x="8" y="8" width="204" height="424" rx="39" fill="none" stroke="rgba(255,255,255,.16)" stroke-width="4" stroke-dasharray=".6 2.4"/>
+<g stroke="rgba(0,0,0,.45)" stroke-width="1.6" stroke-linecap="round"><line x1="5" y1="62" x2="11" y2="62"/><line x1="5" y1="378" x2="11" y2="378"/><line x1="209" y1="62" x2="215" y2="62"/><line x1="209" y1="378" x2="215" y2="378"/><line x1="60" y1="5" x2="60" y2="10"/><line x1="160" y1="430" x2="160" y2="435"/></g>
+<circle cx="86" cy="421.5" r="2.2" fill="rgba(0,0,0,.5)"/><circle cx="134" cy="421.5" r="2.2" fill="rgba(0,0,0,.5)"/>
+<rect x="22" y="22" width="88" height="96" rx="24" fill="rgba(0,0,0,.28)" stroke="rgba(255,255,255,.2)"/>
+<circle cx="50" cy="52" r="15" fill="#111" stroke="#555" stroke-width="3"/><circle cx="50" cy="52" r="6" fill="#1d3557"/>
+<circle cx="50" cy="90" r="15" fill="#111" stroke="#555" stroke-width="3"/><circle cx="50" cy="90" r="6" fill="#1d3557"/>
+<circle cx="88" cy="70" r="15" fill="#111" stroke="#555" stroke-width="3"/><circle cx="88" cy="70" r="6" fill="#1d3557"/>
+<circle cx="44" cy="46" r="2.5" fill="#fff" opacity=".55"/><circle cx="44" cy="84" r="2.5" fill="#fff" opacity=".55"/><circle cx="82" cy="64" r="2.5" fill="#fff" opacity=".55"/>
+<circle cx="116" cy="52" r="2.5" fill="#111" opacity=".7"/>
+<circle cx="116" cy="72" r="6" fill="#0b0b0d" stroke="rgba(255,255,255,.25)" stroke-width="1.5"/><circle cx="116" cy="72" r="2.5" fill="#24334d"/>
+<rect x="92" y="418" width="36" height="7" rx="3.5" fill="rgba(0,0,0,.5)"/>
+<line x1="42" y1="421.5" x2="82" y2="421.5" stroke="rgba(0,0,0,.4)" stroke-width="3" stroke-linecap="round" stroke-dasharray="0.1 6"/>
+<line x1="138" y1="421.5" x2="178" y2="421.5" stroke="rgba(0,0,0,.4)" stroke-width="3" stroke-linecap="round" stroke-dasharray="0.1 6"/>
+<text class="lg" x="110" y="378" text-anchor="middle" font-size="13" font-weight="600" letter-spacing="3" fill="rgba(255,255,255,.6)">iPhone</text>
+<defs><radialGradient id="beam"><stop offset="0" stop-color="#fff8c4" stop-opacity=".95"/><stop offset=".35" stop-color="#ffe68a" stop-opacity=".5"/><stop offset="1" stop-color="#ffe68a" stop-opacity="0"/></radialGradient></defs>
+<circle id="beamGlow" cx="116" cy="34" r="110" fill="url(#beam)" pointer-events="none"/>
+<circle id="flashLamp" cx="116" cy="34" r="6" fill="#b8aa8a" stroke="rgba(0,0,0,.25)"/>
+<path id="appleLogo" class="lg" transform="translate(76,196) scale(2.8)" fill="rgba(255,255,255,.6)" d="M12.152 6.896c-.948 0-2.415-1.078-3.96-1.04-2.04.027-3.91 1.183-4.961 3.014-2.117 3.675-.546 9.103 1.519 12.09 1.013 1.454 2.208 3.09 3.792 3.039 1.52-.065 2.09-.987 3.935-.987 1.831 0 2.35.987 3.96.948 1.637-.026 2.676-1.48 3.676-2.948 1.156-1.688 1.636-3.325 1.662-3.415-.039-.013-3.182-1.221-3.22-4.857-.026-3.04 2.48-4.494 2.597-4.559-1.429-2.09-3.623-2.324-4.39-2.376-2-.156-3.675 1.09-4.61 1.09zM15.53 3.83c.843-1.012 1.4-2.427 1.245-3.83-1.207.052-2.662.805-3.532 1.818-.78.896-1.454 2.338-1.273 3.714 1.338.104 2.715-.688 3.559-1.701"/>
+</svg></div>
+<div class="vctrl">
+<h3 id="cName">Natural Titanium</h3>
+<p id="cDesc">Warna alami titanium dengan kilau logam yang halus.</p>
+<div class="dots" id="dots"></div>
+<button class="torch" id="torch" aria-pressed="false">🔦 Nyalakan Lampu</button>
+</div></div></div></section>
+
+<section id="calculator" class="section"><div class="container">
+<h2 class="section-title tc">Kustomisasi &amp; Kalkulasi Harga</h2>
+<div class="cgrid">
+<div>
+<div class="og"><label>1. Pilih Kapasitas Penyimpanan</label><div class="so" id="storage"></div></div>
+<div class="og"><label>2. Aksesori &amp; Proteksi Tambahan</label><div class="ao" id="addons"></div></div>
+</div>
+<div><div class="sum">
+<h3>Ringkasan Pesanan</h3>
+<div class="sr"><span>Model:</span><span>iPhone 15 Pro</span></div>
+<div class="sr"><span>Warna:</span><span id="sColor">Natural Titanium</span></div>
+<div class="sr"><span>Kapasitas:</span><span id="sStore">128 GB</span></div>
+<div class="sr"><span>Aksesori:</span><span id="sAdd">0 Item</span></div>
+<hr>
+<div class="tot"><span>Total Estimasi:</span><span class="tp" id="total">Rp 20.999.000</span></div>
+<select class="cic" id="tenor" aria-label="Cicilan"><option value="0">Bayar lunas</option><option value="6">Cicilan 6 bulan</option><option value="12">Cicilan 12 bulan</option><option value="24">Cicilan 24 bulan</option></select>
+<div class="mo" id="monthly"></div>
+<button class="btn btn-primary btn-block" id="addCfg">Tambah ke Kantong</button>
+</div></div></div></div></section>
+
+<footer class="footer"><div class="container"><p>Hak Cipta © 2026 Apple Inc. Seluruh hak cipta dilindungi undang-undang.</p></div></footer>
+
+<div class="ov" id="ov"></div>
+<aside class="drawer" id="drawer" aria-label="Kantong belanja">
+<div class="dh"><h3>Kantong Belanja</h3><button id="closeBag" aria-label="Tutup">×</button></div>
+<div id="items"></div>
+<hr><div class="tot"><span>Total</span><span class="tp" id="cartTotal">Rp 0</span></div>
+<button class="btn btn-primary btn-block" id="checkout">Checkout</button>
+</aside>
+<div class="mback" id="modal" role="dialog" aria-modal="true" aria-labelledby="mTitle"><div class="mcard">
+<button class="mx" id="mClose" aria-label="Tutup">×</button>
+<span class="tagline">Tentang iPhone</span><h3 id="mTitle">iPhone 15 Pro</h3>
+<p class="msub">iPhone pertama dengan desain titanium kelas dirgantara. Ringan, tangguh, dan ditenagai chip A17 Pro untuk performa tingkat Pro.</p>
+<div class="feat">
+<div><span>🪨</span><b>Desain Titanium</b><small>Rangka titanium yang kuat namun jauh lebih ringan.</small></div>
+<div><span>⚡</span><b>Chip A17 Pro</b><small>GPU 6-inti untuk game, video, dan aplikasi berat.</small></div>
+<div><span>📷</span><b>Kamera Utama 48MP</b><small>Foto sangat detail, plus telefoto 3x untuk potret.</small></div>
+<div><span>🔌</span><b>USB-C</b><small>Satu kabel untuk mengisi daya dan transfer data cepat.</small></div>
+<div><span>🔘</span><b>Action Button</b><small>Atur sendiri: senter, kamera, mode Fokus, dan lainnya.</small></div>
+<div><span>📱</span><b>Layar 6,1"</b><small>Super Retina XDR 120 Hz dengan Dynamic Island.</small></div>
+</div>
+<div class="mact"><a class="btn btn-primary" href="https://www.apple.com/id/iphone/" target="_blank" rel="noopener noreferrer">Kunjungi apple.com/id ↗️</a><a class="btn btn-secondary" href="#calculator" id="mBuy">Beli Sekarang</a></div>
+<p class="mnote">Spesifikasi dan harga lengkap tersedia di situs resmi Apple Indonesia.</p>
+</div></div>
+<div class="toast" id="toast"></div>
+
+<script>
+const $ = s => document.querySelector(s);
+const $$ = s => document.querySelectorAll(s);
+const rp = n => 'Rp ' + n.toLocaleString('id-ID');
+
+// Data Produk dengan ilustrasi SVG bersih agar bebas error Base64 terpotong
+const PRODUCTS = [
+  {
+    n: 'iPhone 15 Pro',
+    c: 'iphone',
+    b: 'Unggulan',
+    s: 'Chip A17 Pro, Titanium, Kamera 48MP',
+    p: 20999000,
+    g: ['#9a958c', '#3a3a3c'],
+    svg: `<svg width="90" height="130" viewBox="0 0 90 130"><rect x="15" y="6" width="60" height="118" rx="14" fill="#8e8980" stroke="#c5c0b8" stroke-width="2"/><rect x="22" y="13" width="24" height="26" rx="7" fill="#2c2c2e"/><circle cx="29" cy="20" r="4" fill="#111" stroke="#666" stroke-width="1"/><circle cx="29" cy="32" r="4" fill="#111" stroke="#666" stroke-width="1"/><circle cx="39" cy="26" r="4" fill="#111" stroke="#666" stroke-width="1"/></svg>`
+  },
+  {
+    n: 'iPhone 15',
+    c: 'iphone',
+    b: '',
+    s: 'Dynamic Island, Kamera Utama 48 MP',
+    p: 14249000,
+    g: ['#f1d4d7', '#7d6b6e'],
+    svg: `<svg width="90" height="130" viewBox="0 0 90 130"><rect x="15" y="6" width="60" height="118" rx="14" fill="#f2d5d8" stroke="#fff" stroke-width="2"/><rect x="22" y="13" width="23" height="23" rx="7" fill="rgba(0,0,0,.12)"/><circle cx="29" cy="20" r="4" fill="#111"/><circle cx="38" cy="29" r="4" fill="#111"/></svg>`
+  },
+  {
+    n: 'MacBook Pro 16"',
+    c: 'mac',
+    b: 'Supercharged',
+    s: 'Chip M3 Max, Layar Liquid Retina XDR',
+    p: 35999000,
+    g: ['#4a4a4f', '#1c1c1e'],
+    svg: `<svg width="140" height="100" viewBox="0 0 140 100"><rect x="22" y="15" width="96" height="62" rx="6" fill="#111" stroke="#555" stroke-width="2"/><rect x="26" y="19" width="88" height="54" rx="2" fill="url(#mbp)"/><defs><linearGradient id="mbp" x1="0" y1="0" x2="1" y2="1"><stop offset="0" stop-color="#0071e3"/><stop offset="1" stop-color="#5e5ce6"/></linearGradient></defs><path d="M10 77h120l-4 6H14z" fill="#636366"/></svg>`
+  },
+  {
+    n: 'MacBook Air 15"',
+    c: 'mac',
+    b: '',
+    s: 'Chip M2, desain ramping tanpa kipas',
+    p: 22999000,
+    g: ['#c9d6e4', '#58636f'],
+    svg: `<svg width="140" height="100" viewBox="0 0 140 100"><rect x="24" y="18" width="92" height="58" rx="5" fill="#1c1c1e" stroke="#aeb9c4" stroke-width="2"/><rect x="28" y="22" width="84" height="50" rx="2" fill="url(#mba)"/><defs><linearGradient id="mba" x1="0" y1="0" x2="1" y2="1"><stop offset="0" stop-color="#30d158"/><stop offset="1" stop-color="#0a84ff"/></linearGradient></defs><path d="M12 76h116l-3 5H15z" fill="#c9d6e4"/></svg>`
+  },
+  {
+    n: 'Apple Watch Ultra 2',
+    c: 'watch',
+    b: 'Petualangan Baru',
+    s: 'Casing Titanium 49mm, layar 3000 nits',
+    p: 15999000,
+    g: ['#ff9f0a', '#7a3d00'],
+    svg: `<svg width="90" height="120" viewBox="0 0 90 120"><rect x="33" y="6" width="24" height="108" rx="6" fill="#ff9f0a"/><rect x="23" y="28" width="44" height="64" rx="14" fill="#d1cdc7" stroke="#8e8e93" stroke-width="2"/><rect x="27" y="32" width="36" height="56" rx="10" fill="#000"/><circle cx="45" cy="60" r="13" fill="none" stroke="#ff9f0a" stroke-width="2" stroke-dasharray="4 3"/></svg>`
+  },
+  {
+    n: 'AirPods Pro 2',
+    c: 'audio',
+    b: '',
+    s: 'Peredam Kebisingan Aktif generasi baru',
+    p: 3999000,
+    g: ['#e8e8ed', '#6e6e73'],
+    svg: `<svg width="100" height="100" viewBox="0 0 100 100"><rect x="22" y="22" width="56" height="56" rx="18" fill="#f5f5f7" stroke="#d2d2d7" stroke-width="2"/><line x1="22" y1="42" x2="78" y2="42" stroke="#d2d2d7" stroke-width="1.5"/><circle cx="50" cy="54" r="2.5" fill="#30d158"/></svg>`
+  }
+];
+
+// Data Warna Visualizer Titanium
+const COLORS = [
+  { name: 'Natural Titanium', hex: '#9a958c', logo: 'rgba(255,255,255,.65)', desc: 'Warna alami titanium dengan kilau logam yang halus.' },
+  { name: 'Blue Titanium', hex: '#2f3d4c', logo: 'rgba(255,255,255,.65)', desc: 'Nuansa biru gelap elegan dengan sentuhan titanium disikat.' },
+  { name: 'White Titanium', hex: '#e3e2de', logo: 'rgba(0,0,0,.35)', desc: 'Putih perak cerah yang bersih, minimalis, dan modern.' },
+  { name: 'Black Titanium', hex: '#262628', logo: 'rgba(255,255,255,.55)', desc: 'Hitam pekat misterius dengan ketahanan gores tinggi.' }
+];
+
+// Data Kapasitas & Aksesori Kalkulator
+const STORAGES = [
+  { size: '128 GB', sub: 'Kapasitas standar', add: 0 },
+  { size: '256 GB', sub: 'Ruang ekstra foto & video', add: 3000000 },
+  { size: '512 GB', sub: 'Ideal untuk ProRes 4K', add: 7000000 },
+  { size: '1 TB', sub: 'Penyimpanan maksimal Pro', add: 11000000 }
+];
+
+const ADDONS = [
+  { name: 'AppleCare+ 2 Tahun', price: 3299000 },
+  { name: 'Adaptor Daya USB-C 20W', price: 449000 },
+  { name: 'Casing Bening MagSafe', price: 899000 },
+  { name: 'Pengisi Daya MagSafe', price: 799000 }
+];
+
+// State Aplikasi
+let state = {
+  cat: 'all',
+  query: '',
+  sort: 'def',
+  colorIdx: 0,
+  storageIdx: 0,
+  addons: new Set(),
+  cart: []
+};
+
+// Toast Helper
+let toastTimer;
+function showToast(msg) {
+  const t = $('#toast');
+  t.textContent = msg;
+  t.classList.add('show');
+  clearTimeout(toastTimer);
+  toastTimer = setTimeout(() => t.classList.remove('show'), 2600);
+}
+
+// 1. Render Produk
+function renderProducts() {
+  let list = PRODUCTS.filter(p => {
+    const matchCat = state.cat === 'all' || p.c === state.cat;
+    const matchQ = p.n.toLowerCase().includes(state.query) || p.s.toLowerCase().includes(state.query);
+    return matchCat && matchQ;
+  });
+
+  if (state.sort === 'asc') list.sort((a, b) => a.p - b.p);
+  if (state.sort === 'desc') list.sort((a, b) => b.p - a.p);
+
+  const grid = $('#grid');
+  if (!list.length) {
+    grid.innerHTML = `<div class="empty">Tidak ada produk yang cocok dengan pencarian Anda.</div>`;
+    return;
+  }
+
+  grid.innerHTML = list.map((p, idx) => `
+    <article class="pcard" style="animation-delay:${idx * 0.05}s">
+      <div class="pimg" style="background:radial-gradient(circle at 50% 35%, ${p.g[0]}55, ${p.g[1]}cc)">
+        ${p.svg}
+      </div>
+      ${p.b ? `<span class="badge">${p.b}</span>` : `<span class="badge" style="opacity:0">-</span>`}
+      <h3>${p.n}</h3>
+      <p class="specs">${p.s}</p>
+      <div class="cfoot">
+        <span class="price">${rp(p.p)}</span>
+        <button class="btn-icon" data-add="${p.n}" aria-label="Tambah ${p.n} ke kantong">+</button>
+      </div>
+    </article>
+  `).join('');
+}
+
+// Event Filter & Cari Produk
+$('#tabs').addEventListener('click', e => {
+  const btn = e.target.closest('.tab');
+  if (!btn) return;
+  $$('.tab').forEach(t => t.classList.remove('active'));
+  btn.classList.add('active');
+  state.cat = btn.dataset.c;
+  renderProducts();
+});
+
+$('#q').addEventListener('input', e => {
+  state.query = e.target.value.trim().toLowerCase();
+  renderProducts();
+});
+
+$('#sort').addEventListener('change', e => {
+  state.sort = e.target.value;
+  renderProducts();
+});
+
+$('#grid').addEventListener('click', e => {
+  const btn = e.target.closest('[data-add]');
+  if (!btn) return;
+  const prod = PRODUCTS.find(x => x.n === btn.dataset.add);
+  if (prod) {
+    addToCart({ name: prod.n, desc: prod.s, price: prod.p });
+  }
+});
+
+// 2. Visualizer Warna Titanium & Senter
+function initVisualizer() {
+  const dots = $('#dots');
+  dots.innerHTML = COLORS.map((c, i) => `
+    <button class="dot ${i === 0 ? 'active' : ''}" data-idx="${i}" style="background:${c.hex}" aria-label="${c.name}" title="${c.name}"></button>
+  `).join('');
+
+  dots.addEventListener('click', e => {
+    const d = e.target.closest('.dot');
+    if (!d) return;
+    setColor(+d.dataset.idx);
+  });
+
+  $('#torch').addEventListener('click', function () {
+    const lit = $('#phone').classList.toggle('lit');
+    this.classList.toggle('on', lit);
+    this.setAttribute('aria-pressed', lit);
+    this.textContent = lit ? '💡 Matikan Lampu' : '🔦 Nyalakan Lampu';
+  });
+
+  setColor(0);
+}
+
+function setColor(idx) {
+  state.colorIdx = idx;
+  const c = COLORS[idx];
+  $$('.dot').forEach((d, i) => d.classList.toggle('active', i === idx));
+  $$('#phone .tint').forEach(el => el.setAttribute('fill', c.hex));
+  $$('#phone .lg').forEach(el => el.setAttribute('fill', c.logo));
+  $('#glow').style.background = c.hex;
+  $('#cName').textContent = c.name;
+  $('#cDesc').textContent = c.desc;
+  $('#sColor').textContent = c.name;
+}
+
+// 3. Kalkulator Kustomisasi & Cicilan
+function initCalculator() {
+  const storeBox = $('#storage');
+  storeBox.innerHTML = STORAGES.map((st, i) => `
+    <button type="button" class="opt ${i === 0 ? 'active' : ''}" data-st="${i}">
+      <h4>${st.size}</h4>
+      <span>${st.add === 0 ? 'Termasuk' : '+ ' + rp(st.add)}</span>
+    </button>
+  `).join('');
+
+  storeBox.addEventListener('click', e => {
+    const opt = e.target.closest('.opt');
+    if (!opt) return;
+    $$('#storage .opt').forEach(o => o.classList.remove('active'));
+    opt.classList.add('active');
+    state.storageIdx = +opt.dataset.st;
+    updateSummary();
+  });
+
+  const addonBox = $('#addons');
+  addonBox.innerHTML = ADDONS.map((ad, i) => `
+    <label class="ai">
+      <input type="checkbox" data-ad="${i}">
+      <div>
+        <span>${ad.name}</span>
+        <span class="cost">+ ${rp(ad.price)}</span>
+      </div>
+    </label>
+  `).join('');
+
+  addonBox.addEventListener('change', e => {
+    const cb = e.target;
+    if (!cb.matches('[data-ad]')) return;
+    const idx = +cb.dataset.ad;
+    cb.checked ? state.addons.add(idx) : state.addons.delete(idx);
+    updateSummary();
+  });
+
+  $('#tenor').addEventListener('change', updateSummary);
+
+  $('#addCfg').addEventListener('click', () => {
+    const color = COLORS[state.colorIdx].name;
+    const storage = STORAGES[state.storageIdx].size;
+    const addonNames = [...state.addons].map(i => ADDONS[i].name);
+    const total = getConfiguredTotal();
+    const desc = `${color} • ${storage}${addonNames.length ? ' + ' + addonNames.join(', ') : ''}`;
+    addToCart({ name: 'iPhone 15 Pro (Kustom)', desc, price: total });
+  });
+
+  updateSummary();
+}
+
+function getConfiguredTotal() {
+  const base = PRODUCTS[0].p;
+  const storeAdd = STORAGES[state.storageIdx].add;
+  let addonAdd = 0;
+  state.addons.forEach(i => addonAdd += ADDONS[i].price);
+  return base + storeAdd + addonAdd;
+}
+
+function updateSummary() {
+  const total = getConfiguredTotal();
+  const tenor = +$('#tenor').value;
+  $('#sStore').textContent = STORAGES[state.storageIdx].size;
+  $('#sAdd').textContent = `${state.addons.size} Item`;
+  $('#total').textContent = rp(total);
+
+  if (tenor > 0) {
+    const perMonth = Math.ceil(total / tenor);
+    $('#monthly').textContent = `Estimasi ${rp(perMonth)} / bulan (0% untuk ${tenor} bulan)`;
+  } else {
+    $('#monthly').textContent = 'Pembayaran penuh sekali bayar';
+  }
+}
+
+// 4. Kantong Belanja (Cart Drawer)
+function addToCart(item) {
+  state.cart.push({ id: Date.now() + Math.random(), ...item });
+  renderCart();
+  showToast(`✓ ${item.name} ditambahkan ke kantong`);
+}
+
+function removeFromCart(id) {
+  state.cart = state.cart.filter(x => x.id !== id);
+  renderCart();
+}
+
+function renderCart() {
+  const count = state.cart.length;
+  const badge = $('#bagCount');
+  badge.textContent = count;
+  badge.style.display = count > 0 ? 'flex' : 'none';
+
+  const itemsEl = $('#items');
+  if (!count) {
+    itemsEl.innerHTML = `<p style="color:var(--muted);text-align:center;margin-top:40px">Kantong belanja Anda masih kosong.</p>`;
+    $('#cartTotal').textContent = 'Rp 0';
+    return;
+  }
+
+  let sum = 0;
+  itemsEl.innerHTML = state.cart.map(it => {
+    sum += it.price;
+    return `
+      <div class="it">
+        <div>
+          <strong>${it.name}</strong>
+          <small>${it.desc}</small>
+          <span>${rp(it.price)}</span>
+        </div>
+        <button data-rm="${it.id}">Hapus</button>
+      </div>
+    `;
+  }).join('');
+
+  $('#cartTotal').textContent = rp(sum);
+}
+
+function toggleDrawer(open) {
+  $('#drawer').classList.toggle('show', open);
+  $('#ov').classList.toggle('show', open);
+}
+
+$('#bagBtn').addEventListener('click', () => toggleDrawer(true));
+$('#closeBag').addEventListener('click', () => toggleDrawer(false));
+$('#ov').addEventListener('click', () => toggleDrawer(false));
+
+$('#items').addEventListener('click', e => {
+  const btn = e.target.closest('[data-rm]');
+  if (btn) removeFromCart(+btn.dataset.rm);
+});
+
+$('#checkout').addEventListener('click', () => {
+  if (!state.cart.length) {
+    showToast('Kantong belanja Anda masih kosong');
+    return;
+  }
+  state.cart = [];
+  renderCart();
+  toggleDrawer(false);
+  showToast('🎉 Pesanan berhasil diproses! Terima kasih.');
+});
+
+// 5. Modal "Pelajari Selengkapnya" & Navigasi Aktif
+function toggleModal(open) {
+  $('#modal').classList.toggle('show', open);
+}
+
+$('#learnBtn').addEventListener('click', () => toggleModal(true));
+$('#mClose').addEventListener('click', () => toggleModal(false));
+$('#mBuy').addEventListener('click', () => toggleModal(false));
+$('#modal').addEventListener('click', e => {
+  if (e.target === $('#modal')) toggleModal(false);
+});
+
+document.addEventListener('keydown', e => {
+  if (e.key === 'Escape') {
+    toggleModal(false);
+    toggleDrawer(false);
+  }
+});
+
+// Scroll Spy untuk Navbar
+const sections = ['hero', 'products', 'visualizer', 'calculator'];
+window.addEventListener('scroll', () => {
+  const pos = window.scrollY + 140;
+  let activeId = 'hero';
+  sections.forEach(id => {
+    const el = document.getElementById(id);
+    if (el && el.offsetTop <= pos) activeId = id;
+  });
+  $$('.nav-menu a').forEach(a => {
+    a.classList.toggle('on', a.getAttribute('href') === '#' + activeId);
+  });
+}, { passive: true });
+
+// Inisialisasi
+renderProducts();
+initVisualizer();
+initCalculator();
+renderCart();
+</script>
+</body>
+</html>
